@@ -1,0 +1,57 @@
+//  _____           _                    _____ _         _
+// /  __ \         | |                  /  ___| |       | |
+// | /  \/_   _ ___| |_ ___  _ __ ___   \ `--.| |_ _   _| | ___  ___
+// | |   | | | / __| __/ _ \| '_ ` _ \   `--. \ __| | | | |/ _ \/ __|
+// | \__/\ |_| \__ \ || (_) | | | | | | /\__/ / |_| |_| | |  __/\__ \
+//  \____/\__,_|___/\__\___/|_| |_| |_| \____/ \__|\__, |_|\___||___/
+//                                                  __/ |
+//                                                 |___/
+
+@import 'variables';
+@import 'mixins';
+
+#race-intro {
+    height: calc(100vh - 50px);
+    background-color: darken(#45484d, 15);
+}
+
+#group1, #group4 {
+    width: 100%;
+}
+#group2, #group3 {
+    width: 25%;
+    float: left;
+}
+
+#intro-text {
+    width: 50%;
+    height: calc(50vh - 25px);
+    overflow: hidden;
+    float: left;
+    color: white;
+    padding: 25px;
+}
+
+.race-image {
+    // background-image: url("../images/_defaultImage.jpg");
+    width: 25%;
+    height: calc(25vh - 12.5px);
+    display: block;
+    float: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    opacity: 0;
+    @include transition(all, .5s, ease-out);
+}
+.visible {
+    opacity: 1;
+}
+
+#group2 .race-image, #group3 .race-image {
+    width: 100%;
+}
+
+#race-image1 {
+    // background-image: url('../images/_simmons.jpg');
+}

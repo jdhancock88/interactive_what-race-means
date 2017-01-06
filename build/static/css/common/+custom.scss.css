@@ -1,0 +1,38 @@
+#race-intro {
+  height: calc(100vh - 50px);
+  background-color: #212225; }
+
+#group1, #group4 {
+  width: 100%; }
+
+#group2, #group3 {
+  width: 25%;
+  float: left; }
+
+#intro-text {
+  width: 50%;
+  height: calc(50vh - 25px);
+  overflow: hidden;
+  float: left;
+  color: white;
+  padding: 25px; }
+
+.race-image {
+  width: 25%;
+  height: calc(25vh - 12.5px);
+  display: block;
+  float: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  opacity: 0;
+  -webkit-transtion: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out; }
+
+.visible {
+  opacity: 1; }
+
+#group2 .race-image, #group3 .race-image {
+  width: 100%; }
