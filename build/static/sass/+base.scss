@@ -50,13 +50,13 @@ body {
   position: relative;
   min-height: 100%;
   display: block;
-  padding-bottom: 200px;
-  @media (max-width: 650px) {
-      padding-bottom: 225px;
-  }
-  @media (max-width: 450px) {
-      padding-bottom: 250px;
-  }
+  // padding-bottom: 200px;
+  // @media (max-width: 650px) {
+  //     padding-bottom: 225px;
+  // }
+  // @media (max-width: 450px) {
+  //     padding-bottom: 250px;
+  // }
 }
 ol, ul {
   list-style: none;
@@ -500,6 +500,8 @@ a:visited {
 }
 #content {
   position: relative;
+  height: calc(100vh - 52px);
+  overflow: hidden;
 }
 h1, h2, h3, h4 {
   margin-bottom: 1.2rem;

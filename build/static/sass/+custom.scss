@@ -10,11 +10,14 @@
 @import 'variables';
 @import 'mixins';
 
+.no-show {
+    display: none !important;
+}
+
 #race-intro {
     height: calc(100vh - 50px);
     background-color: darken(#45484d, 15);
 }
-
 #group1, #group4 {
     width: 100%;
 }
@@ -29,9 +32,25 @@
     overflow: hidden;
     float: left;
     color: white;
-    padding: 25px;
+    padding: 100px 25px 25px 25px;
+    opacity: 0;
+    font-family: $custom;
+    text-align: center;
+    display: table;
+    h1, h6 {
+        text-transform: uppercase;
+    }
+    @include transition(all, .5s, ease-out);
+    &.visible-text {
+        padding: 25px;
+        opacity: 1;
+    }
 }
 
+.int-btn {
+    margin: 2.4rem auto 0;
+    text-transform: uppercase;
+}
 .race-image {
     // background-image: url("../images/_defaultImage.jpg");
     width: 25%;
@@ -52,6 +71,95 @@
     width: 100%;
 }
 
-#race-image1 {
-    // background-image: url('../images/_simmons.jpg');
+
+#race-explainer {
+    .race-slide-content {
+        padding: 0 25%;
+    }
+}
+
+#race-questions {
+    .race-slide-content {
+        padding: 0 12.5%;
+    }
+    h5 {
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 2.4rem;
+    }
+    .question-card {
+        width: 49%;
+        float: left;
+        margin: 0 2% 2% 0;
+        background-color: $offWhite;
+        color: $black33;
+        padding: 20px;
+        display: table;
+        text-align: center;
+        cursor: pointer;
+        box-shadow: 0px 0px 5px rgba(0,0,0,.95);
+        border-radius: 1px;
+        @include transition(all, .25s, ease-out);
+        &:nth-of-type(even) {
+            margin-right: 0;
+        }
+        &:last-child {
+            margin: 0 auto;
+            float: none;
+            clear: both;
+        }
+        &:hover {
+            background-color: darken($offWhite, 2);
+            box-shadow: 0px 0px 15px rgba(0,0,0,.95);
+        }
+        h6 {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}
+
+.race-slide {
+    width: 100%;
+    height: calc(100vh - 50px);
+    color: white;
+    position: absolute;
+    top: 0;
+    display: table;
+    overflow: auto;
+    @include transition(all, .5s, ease-out);
+    &.off-screen {
+        top: 100vh;
+        opacity: 0;
+    }
+    h5 {
+        line-height: 3rem;
+    }
+}
+
+.race-slide-content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.btn-minimal {
+    position: fixed;
+    bottom: 20px;
+    color: $black33;
+    font-family: $sans;
+    font-weight: bold;
+    width: 150px;
+    left: 50%;
+    margin-left: -75px;
+    background-color: initial;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: $primary;
+    padding: 10px 5px;
+    @include type(1.6rem, 1.6rem, 0);
+    &:hover {
+        color: darken($primary, 5);
+    }
 }

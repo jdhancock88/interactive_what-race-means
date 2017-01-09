@@ -45,14 +45,7 @@ body {
   z-index: 0;
   position: relative;
   min-height: 100%;
-  display: block;
-  padding-bottom: 200px; }
-  @media (max-width: 650px) {
-    body {
-      padding-bottom: 225px; } }
-  @media (max-width: 450px) {
-    body {
-      padding-bottom: 250px; } }
+  display: block; }
 
 ol, ul {
   list-style: none; }
@@ -423,7 +416,9 @@ a:visited {
   font-weight: bold; }
 
 #content {
-  position: relative; }
+  position: relative;
+  height: calc(100vh - 52px);
+  overflow: hidden; }
 
 h1, h2, h3, h4 {
   margin-bottom: 1.2rem; }

@@ -107,8 +107,13 @@ googletag.enableServices();
     </div>
 
     <div id="intro-text">
-        <h1>What race means</h1>
-        <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non sem nulla. In nec erat non tellus maximus dapibus. Integer sollicitudin erat odio, vel fringilla velit dignissim vehicula. Proin tellus lorem, efficitur nec erat at, condimentum vestibulum mi. Duis aliquet a metus vel bibendum. In vel mi metus. Donec nunc lacus, volutpat luctus finibus vitae, auctor vitae lectus. Vestibulum ligula sapien, euismod sit amet nunc vitae, convallis sodales lectus. Integer posuere gravida ex, id molestie nisl accumsan quis.</p>
+
+        <div class="race-slide-content">
+            <h6>A DallasNews Video Project</h6>
+            <h1>Seeing in Color</h1>
+            <p class="intro">This story is best experienced with your sound on</p>
+            <button class="int-btn">Begin</button>
+        </div>
     </div>
 
     <div class="image-group" id="group3">
@@ -172,7 +177,91 @@ googletag.enableServices();
 
 
 </section>
+
 <!-- end #race-intro -->
+
+<section id="race-explainer" class="off-screen race-slide">
+    <div class="race-slide-content">
+        <h5>Race. A loaded word that causes tensions in our communities. Drives explosive news stories. Underlies how we are perceived, who we are. Yet we rarely talk about it. The Dallas Morning News wanted to help change that. We asked regular people about their experiences with race and diversity. These are their stories.</h5>
+        <button class="int-btn">Continue</button>
+    </div>
+</section>
+<!-- end #race-explainer -->
+
+
+
+<section id="race-intro-video" class="off-screen race-slide">
+    <div class="race-slide-content">
+        <video id="intro-video" width="100%" preload="metadata" autoplay="false" playsinline poster="images/_defaultImage.jpg">
+            <source id="mp4-tag" src="" type="video/mp4" />
+            <source id="ogg-tag"src="" type="video/ogg" />
+            Your browser does not support native video.
+        </video>
+
+        <script>
+            var introVideo = $("#intro-video");
+            if ($(window).width() > 700) {
+                $("#mp4-tag").attr("src", "assets/main.mp4");
+                $("#ogg-tag").attr("src", "assets/main.ogg");
+            } else {
+                $("#mp4-tag").attr("src", "assets/main-small.mp4");
+                $("#ogg-tag").attr("src", "assets/main-small.ogg");
+            }
+        </script>
+
+    </div>
+
+    <button id="intro-skip" class="btn-minimal no-show">Skip Intro</button>
+
+</section>
+<!-- end #race-intro-video -->
+
+
+
+<section id="race-questions" class="off-screen race-slide">
+    <div class="race-slide-content clearfix">
+        <h5>Select a video to watch</h5>
+        <div class="question-card" data-video="only-race-in-room">
+            <h6 >What does it feel like to be the only member of your race in a room?</h6>
+        </div>
+        <div class="question-card" data-video="other-races">
+            <h6>When did you realize that there were other races?</h6>
+        </div>
+        <div class="question-card" data-video="privilege">
+            <h6>How do you define privilege?</h6>
+        </div>
+        <div class="question-card" data-video="pulled-over">
+            <h6>What is the first thing you do when you get pulled over?</h6>
+        </div>
+        <div class="question-card" data-video="strangers">
+            <h6>What is the first thing strangers notice when they look at you?</h6>
+        </div>
+        <div class="question-card" data-video="tailed-in-store">
+            <h6>Have you ever been tailed in a store?</h6>
+        </div>
+        <div class="question-card" data-video="color-emoji">
+            <h6>What color emoji do you use?</h6>
+        </div>
+    </div>
+</section>
+<!-- end #race-questions -->
+
+<section id="question-video" class="off-screen race-slide">
+    <div class="race-slide-content">
+
+        <video id="q-video" width="100%" preload="metadata" autoplay="false" playsinline poster="images/_defaultImage.jpg">
+            <source id="q-mp4-tag" src="" type="video/mp4" />
+            <source id="q-ogg-tag"src="" type="video/ogg" />
+            Your browser does not support native video.
+        </video>
+
+    </div>
+
+    <button id="video-skip" class="btn-minimal no-show">Skip Intro</button>
+
+
+</section>
+<!-- end #question-video -->
 
 {%endblock%}
 

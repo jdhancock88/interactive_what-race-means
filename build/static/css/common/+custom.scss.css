@@ -1,3 +1,6 @@
+.no-show {
+  display: none !important; }
+
 #race-intro {
   height: calc(100vh - 50px);
   background-color: #212225; }
@@ -15,7 +18,24 @@
   overflow: hidden;
   float: left;
   color: white;
-  padding: 25px; }
+  padding: 100px 25px 25px 25px;
+  opacity: 0;
+  font-family: "Anton", "Gotham A", "Gotham B", Arial, sans-serif;
+  text-align: center;
+  display: table;
+  -webkit-transtion: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out; }
+  #intro-text h1, #intro-text h6 {
+    text-transform: uppercase; }
+  #intro-text.visible-text {
+    padding: 25px;
+    opacity: 1; }
+
+.int-btn {
+  margin: 2.4rem auto 0;
+  text-transform: uppercase; }
 
 .race-image {
   width: 25%;
@@ -36,3 +56,87 @@
 
 #group2 .race-image, #group3 .race-image {
   width: 100%; }
+
+#race-explainer .race-slide-content {
+  padding: 0 25%; }
+
+#race-questions .race-slide-content {
+  padding: 0 12.5%; }
+
+#race-questions h5 {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 2.4rem; }
+
+#race-questions .question-card {
+  width: 49%;
+  float: left;
+  margin: 0 2% 2% 0;
+  background-color: #f2efe1;
+  color: #212121;
+  padding: 20px;
+  display: table;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.95);
+  border-radius: 1px;
+  -webkit-transtion: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out; }
+  #race-questions .question-card:nth-of-type(even) {
+    margin-right: 0; }
+  #race-questions .question-card:last-child {
+    margin: 0 auto;
+    float: none;
+    clear: both; }
+  #race-questions .question-card:hover {
+    background-color: #efebda;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.95); }
+  #race-questions .question-card h6 {
+    display: table-cell;
+    vertical-align: middle; }
+
+.race-slide {
+  width: 100%;
+  height: calc(100vh - 50px);
+  color: white;
+  position: absolute;
+  top: 0;
+  display: table;
+  overflow: auto;
+  -webkit-transtion: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out; }
+  .race-slide.off-screen {
+    top: 100vh;
+    opacity: 0; }
+  .race-slide h5 {
+    line-height: 3rem; }
+
+.race-slide-content {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center; }
+
+.btn-minimal {
+  position: fixed;
+  bottom: 20px;
+  color: #212121;
+  font-family: "Gotham A", "Gotham B", Arial, sans-serif;
+  font-weight: bold;
+  width: 150px;
+  left: 50%;
+  margin-left: -75px;
+  background-color: initial;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #fbb829;
+  padding: 10px 5px;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  margin-bottom: 0; }
+  .btn-minimal:hover {
+    color: #fbb010; }
