@@ -33,6 +33,7 @@
 
 
 {%block custom_head%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 {%endblock%}
 
 
@@ -92,6 +93,8 @@ googletag.enableServices();
 
 {%block content%}
 
+
+<section id="race-slides">
 <section class="clearfix" id="race-intro">
 
     <div class="image-group" id="group1">
@@ -111,7 +114,8 @@ googletag.enableServices();
         <div class="race-slide-content">
             <h6>A DallasNews Video Project</h6>
             <h1>Seeing in Color</h1>
-            <p class="intro">This story is best experienced with your sound on</p>
+            <h5 class="intro">This story is best experienced with your sound on</h5>
+            <img src="images/_headphones.svg" alt="headphones icon" />
             <button class="int-btn">Begin</button>
         </div>
     </div>
@@ -127,15 +131,6 @@ googletag.enableServices();
         <span class= "race-image" id="race-image11"></span>
         <span class= "race-image" id="race-image12"></span>
     </div>
-
-
-
-    <!-- <div class="shareComments shareCommentsTop">
-        <ul id="share-bar1"></ul>
-    </div> -->
-    <!-- end shareComments -->
-
-
 
 
 
@@ -170,11 +165,6 @@ googletag.enableServices();
 	<!-- end more -->
 
 
-    <!-- <div class="shareComments">
-        <div id="comments"></div>
-	</div> -->
-	<!-- end shareComments -->
-
 
 </section>
 
@@ -192,11 +182,18 @@ googletag.enableServices();
 
 <section id="race-intro-video" class="off-screen race-slide">
     <div class="race-slide-content">
-        <video id="intro-video" width="100%" preload="metadata" autoplay="false" playsinline poster="images/_defaultImage.jpg">
+        <video id="intro-video" width="100%" preload="metadata" autoplay="false" playsinline poster="images/_poster.jpg">
             <source id="mp4-tag" src="" type="video/mp4" />
             <source id="ogg-tag"src="" type="video/ogg" />
             Your browser does not support native video.
         </video>
+
+        <div class="controls">
+            <i class="fa fa-play"></i>
+            <i class="fa fa-pause"></i>
+            <i class="fa fa-step-backward"></i>
+        </div>
+
 
         <script>
             var introVideo = $("#intro-video");
@@ -222,25 +219,25 @@ googletag.enableServices();
     <div class="race-slide-content clearfix">
         <h5>Select a video to watch</h5>
         <div class="question-card" data-video="only-race-in-room">
-            <h6 >What does it feel like to be the only member of your race in a room?</h6>
+            <h5>What does it feel like to be the only member of your race in a room?</h5>
         </div>
         <div class="question-card" data-video="other-races">
-            <h6>When did you realize that there were other races?</h6>
+            <h5>When did you realize that there were other races?</h5>
         </div>
         <div class="question-card" data-video="privilege">
-            <h6>How do you define privilege?</h6>
+            <h5>How do you define privilege?</h5>
         </div>
         <div class="question-card" data-video="pulled-over">
-            <h6>What is the first thing you do when you get pulled over?</h6>
+            <h5>What is the first thing you do when you get pulled over?</h5>
         </div>
         <div class="question-card" data-video="strangers">
-            <h6>What is the first thing strangers notice when they look at you?</h6>
+            <h5>What is the first thing strangers notice when they look at you?</h5>
         </div>
         <div class="question-card" data-video="tailed-in-store">
-            <h6>Have you ever been tailed in a store?</h6>
+            <h5>Have you ever been tailed in a store?</h5>
         </div>
         <div class="question-card" data-video="color-emoji">
-            <h6>What color emoji do you use?</h6>
+            <h5>What color emoji do you use?</h5>
         </div>
     </div>
 </section>
@@ -249,19 +246,60 @@ googletag.enableServices();
 <section id="question-video" class="off-screen race-slide">
     <div class="race-slide-content">
 
-        <video id="q-video" width="100%" preload="metadata" autoplay="false" playsinline poster="images/_defaultImage.jpg">
+        <video id="q-video" width="100%" preload="metadata" autoplay="false" playsinline poster="images/_poster.jpg">
             <source id="q-mp4-tag" src="" type="video/mp4" />
             <source id="q-ogg-tag"src="" type="video/ogg" />
             Your browser does not support native video.
         </video>
 
+        <div class="controls">
+            <i class="fa fa-play"></i>
+            <i class="fa fa-pause"></i>
+            <i class="fa fa-step-backward"></i>
+        </div>
+
     </div>
 
-    <button id="video-skip" class="btn-minimal no-show">Skip Intro</button>
+    <button id="view-questions" class="btn-minimal no-show">Choose another video</button>
 
 
 </section>
 <!-- end #question-video -->
+
+<section id="share-comments" class="off-screen race-slide">
+
+    <div class="shareComments">
+        <h5>Share this project:</h5>
+        <div class="shareComments shareCommentsTop">
+            <ul id="share-bar1"></ul>
+        </div>
+        <p>Vivamus sed lectus eu massa rutrum condimentum et quis erat. Suspendisse tincidunt non velit a blandit. Quisque rhoncus, turpis nec ultricies dapibus, nunc leo tincidunt est, vel mollis nunc massa vitae dui. In et feugiat ipsum. Curabitur erat diam, consectetur eu tincidunt eu, cursus nec nisi. Phasellus non erat in metus condimentum dictum. Curabitur sapien arcu, maximus sed consectetur in, sagittis dictum felis. Aenean at pretium ex, nec pulvinar ipsum. Donec ullamcorper feugiat justo sodales fermentum. Ut mattis pharetra mauris, id fringilla tellus eleifend quis. Etiam ac nulla sapien. Maecenas nec purus vitae mauris iaculis volutpat sed eget ex. Integer aliquet augue leo, vehicula convallis arcu pulvinar et.
+
+Mauris mollis elit eu tincidunt tincidunt. Curabitur facilisis fermentum rutrum. Mauris id odio orci. Suspendisse sagittis suscipit odio, id porta sem dignissim lacinia. Pellentesque ac neque nibh. Integer at lacus euismod, cursus justo eget, fringilla dolor. Sed sit amet turpis in lorem condimentum fringilla ac sed massa.
+
+Sed eu risus eu mi dictum bibendum sed sit amet ligula. Sed pharetra venenatis odio, eget condimentum ante placerat quis. Curabitur ultrices elementum felis, facilisis commodo est scelerisque at. Donec vitae venenatis erat, sit amet lobortis erat. Nam sit amet lectus sit amet nunc porttitor auctor ac at nunc. Phasellus pretium neque eget arcu mattis dignissim. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin vel feugiat nibh. Duis elementum ac mauris tristique porta. Nam quis malesuada lacus. Ut augue ipsum, sollicitudin at dolor convallis, blandit tristique sem. Nunc ac dolor vel mauris dictum porta in quis ligula. Nulla ac tortor non lorem imperdiet fringilla.
+
+Donec malesuada enim diam, eget lacinia dolor pellentesque id. Ut sollicitudin dolor sed varius feugiat. Maecenas ut ultrices ligula. Proin scelerisque fringilla eros nec convallis. Nulla condimentum tellus ornare, fringilla velit non, rutrum sem. Integer quis lorem et ex lacinia ultricies at dictum augue. Quisque vitae euismod nibh. Cras turpis ante, dignissim vitae lorem et, ultricies consectetur lorem. Aliquam non dui nec nulla vulputate accumsan. Integer vulputate nisi tellus, non blandit libero porta ac. Etiam at congue risus. Donec dapibus vel risus sit amet tristique. Aliquam nec nisi ut leo lobortis facilisis. Quisque semper semper est, at dignissim est vestibulum ut.
+
+Duis sit amet magna nulla. Morbi molestie nulla leo, sit amet elementum tellus efficitur posuere. Etiam augue ante, tempus non elementum quis, condimentum nec diam. Maecenas at viverra nisi. Etiam quis ultrices felis, non dignissim ligula. Duis sit amet aliquet mauris. Integer accumsan risus a porttitor eleifend.
+
+Sed sem ligula, convallis at consequat eget, scelerisque at massa. Ut non iaculis metus, pharetra laoreet magna. Vivamus consequat tempor consectetur. Aenean vestibulum lorem at sagittis laoreet. Nullam maximus vulputate turpis quis sollicitudin. Praesent dictum tempor fermentum. Sed pharetra orci maximus, vulputate justo eu, faucibus purus.
+
+Etiam pellentesque dapibus eros nec scelerisque. Vivamus non ultricies metus, id porta nulla. Phasellus molestie odio sit amet diam tincidunt aliquam. Nam aliquet vehicula quam et ornare. Morbi nisl massa, finibus at sagittis in, hendrerit eget ligula. Morbi fermentum sapien non libero cursus, congue luctus turpis malesuada. Donec lorem tellus, semper sit amet pharetra eu, hendrerit semper ipsum. Integer vitae est vel elit scelerisque dapibus vitae at justo. Duis accumsan varius sem, quis rhoncus nibh varius sed. Nunc euismod convallis quam at iaculis. Donec id neque tempor metus pulvinar tincidunt a a tellus. Duis tempus, est maximus pulvinar gravida, nulla quam ultricies lorem, in molestie felis quam id nunc. Etiam purus orci, euismod et enim ut, tincidunt lobortis nulla. Mauris tincidunt dolor et urna venenatis, quis lobortis erat egestas. Donec pretium est in lobortis viverra. Duis suscipit augue mauris, lacinia luctus erat bibendum id.</p>
+        <div id="comments"></div>
+	</div>
+	<!-- end shareComments -->
+
+</section>
+
+</section>
+
+
+<footer id="race-footer" class="no-show">
+    <span id="view-intro">View Intro</span>
+    <span id="race-comment">Share & Comment</span>
+</footer>
+<!-- end #race-footer -->
 
 {%endblock%}
 

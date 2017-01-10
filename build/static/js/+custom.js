@@ -159,7 +159,9 @@ $(document).ready(function() {
 
 		// display the explainer text
 		setTimeout(function() {
+			$("#race-footer").removeClass("no-show");
 			$("#race-explainer").removeClass("off-screen");
+			$("#race-intro").addClass("no-show");
 		}, (l * 100));
 
 	}
@@ -195,6 +197,7 @@ $(document).ready(function() {
 
 	// skipping the intro
 	$("#intro-skip").click(function() {
+		console.log("skip");
 		$(this).addClass("no-show");
 		showQuestions($(this));
 	});
@@ -225,6 +228,69 @@ $(document).ready(function() {
 		}, 600);
 
 	}
+
+	////////////////////////////////////////////////////////////////////////////
+	////// SELECTING A QUESION /////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+
+	var qVideo = $("#q-video");
+
+	function loadQuestion(video) {
+
+		var w = $(window).width();
+		var small;
+
+		if (w < 700) {
+			small = true;
+		}
+
+		// hide the questions slide
+		$("#race-questions").addClass("off-screen");
+
+		// fill out the src attribute with the proper video path
+
+		if (small) {
+			$("#q-mp4-tag").attr("src", "assets/" + video + "-small.mp4");
+			$("#q-ogg-tag").attr("src", "assets/" + video + "-small.ogg");
+		} else {
+			$("#q-mp4-tag").attr("src", "assets/" + video + ".mp4");
+			$("#q-ogg-tag").attr("src", "assets/" + video + ".ogg");
+		}
+
+		// animate in the slide that holds the individual video questions
+		setTimeout(function() {
+			$("#question-video").removeClass("off-screen");
+		}, 600);
+
+		// show the button that allows the user to get back to the questions
+		setTimeout(function() {
+			$("#view-questions").removeClass("no-show");
+		}, 1200);
+
+		// load and play the selected video
+		qVideo[0].load();
+		qVideo[0].play();
+
+	}
+
+	// clicking a question card grabs the name of the video and passes it off to the loadQuestion
+	// function above
+	$(".question-card").on("click", function() {
+		var video = $(this).attr("data-video");
+		loadQuestion(video);
+	});
+
+	// ending a video and going back to the questions
+	$("#view-questions").click(function() {
+		$(this).addClass("no-show");
+		showQuestions($(this));
+	});
+
+	// listening for the questions video to end. when it does, hide it then display the questions
+	qVideo[0].addEventListener("ended", function() {
+		$(this).closest(".race-slide").find("#intro-skip").addClass("no-show");
+		showQuestions($(this));
+	});
 
 
 	////////////////////////////////////////////////////////////////////////////
@@ -258,6 +324,47 @@ $(document).ready(function() {
 	var touch = Modernizr.touchevents;
 	var browser = bowser.name;
 
+	$("#view-intro").on("click", function() {
+		qVideo[0].pause();
+		introVideo[0].pause();
+
+		$(".race-slide").addClass("off-screen");
+		$(".btn-minimal").addClass("no-show");
+
+		setTimeout(function() {
+			$("#race-explainer").removeClass("off-screen");
+		}, 600);
+	});
+
+	$("#race-comment").on("click", function() {
+		$(".race-slide").addClass("off-screen");
+
+		setTimeout(function() {
+			$("#share-comments").removeClass("off-screen");
+		}, 600);
+	});
+
+
+	$.each($(".race-slide-content"), function() {
+		if ($(this).height() > $(window).height()) {
+			$(this).closest(".race-slide").addClass("race-overflow");
+		} else {
+			$(this).closest(".race-slide").removeClass("race-overflow");
+		}
+	});
+
+
+	$(".fa-play").click(function() {
+		$(this).parent(".controls").siblings("video")[0].play();
+	});
+
+	$(".fa-pause").click(function() {
+		$(this).parent(".controls").siblings("video")[0].pause();
+	});
+
+	$(".fa-step-backward").click(function() {
+		$(this).parent(".controls").siblings("video")[0].load();
+	});
 
 
 	////////////////////////////////////////////////////////////////////////////
@@ -270,12 +377,22 @@ $(document).ready(function() {
 	var w = $(window).width();
 
 	// if we resize and the width is now different, rerun setQuestionHeight
+	// along with checking the height of the race-divs again to see if they need overflow
 	$(window).resize(function() {
 		var newW = $(window).width();
 
 		if (w !== newW) {
 			setTimeout(function() {
 				setQuestionHeight();
+
+				$.each($(".race-slide-content"), function() {
+					if ($(this).height() > $(window).height()) {
+						$(this).closest(".race-slide").addClass("race-overflow");
+					} else {
+						$(this).closest(".race-slide").removeClass("race-overflow");
+					}
+				});
+
 			}, 250);
 		}
 

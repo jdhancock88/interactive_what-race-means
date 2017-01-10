@@ -418,7 +418,8 @@ a:visited {
 #content {
   position: relative;
   height: calc(100vh - 52px);
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: #212225; }
 
 h1, h2, h3, h4 {
   margin-bottom: 1.2rem; }
@@ -1147,6 +1148,30 @@ XIX. ADS
 .no-show {
   display: none !important; }
 
+#race-slides {
+  overflow-y: auto;
+  display: block; }
+
+#race-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 30px;
+  padding: 0 20px; }
+  #race-footer span {
+    color: white;
+    font-family: "Gotham A", "Gotham B", Arial, sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 3rem;
+    margin-bottom: 0; }
+    #race-footer span:hover {
+      text-decoration: underline; }
+    #race-footer span:last-of-type {
+      float: right; }
+
 #race-intro {
   height: calc(100vh - 50px);
   background-color: #212225; }
@@ -1163,10 +1188,10 @@ XIX. ADS
   height: calc(50vh - 25px);
   overflow: hidden;
   float: left;
-  color: white;
+  color: #f2efe1;
   padding: 100px 25px 25px 25px;
   opacity: 0;
-  font-family: "Anton", "Gotham A", "Gotham B", Arial, sans-serif;
+  font-family: "Gotham A", "Gotham B", Arial, sans-serif;
   text-align: center;
   display: table;
   -webkit-transtion: all 0.5s ease-out;
@@ -1175,9 +1200,24 @@ XIX. ADS
   transition: all 0.5s ease-out; }
   #intro-text h1, #intro-text h6 {
     text-transform: uppercase; }
+  #intro-text h1 {
+    font-family: "Anton", "Gotham A", "Gotham B", Arial, sans-serif;
+    font-size: 8rem;
+    margin-bottom: 2.4rem; }
+  #intro-text h6 {
+    width: 280px;
+    margin: 0 auto;
+    border-bottom: 2px solid #f2efe1;
+    padding-bottom: .6rem;
+    margin-bottom: 2.4rem; }
   #intro-text.visible-text {
     padding: 25px;
     opacity: 1; }
+  #intro-text img {
+    width: 50px;
+    height: 50px; }
+  #intro-text button {
+    margin-top: 3.6rem; }
 
 .int-btn {
   margin: 2.4rem auto 0;
@@ -1203,8 +1243,10 @@ XIX. ADS
 #group2 .race-image, #group3 .race-image {
   width: 100%; }
 
-#race-explainer .race-slide-content {
-  padding: 0 25%; }
+#race-explainer {
+  color: #f2efe1; }
+  #race-explainer .race-slide-content {
+    padding: 0 25%; }
 
 #race-questions .race-slide-content {
   padding: 0 12.5%; }
@@ -1239,13 +1281,15 @@ XIX. ADS
   #race-questions .question-card:hover {
     background-color: #efebda;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.95); }
-  #race-questions .question-card h6 {
+  #race-questions .question-card h5 {
     display: table-cell;
-    vertical-align: middle; }
+    vertical-align: middle;
+    margin-bottom: 0;
+    line-height: 2.4rem; }
 
 .race-slide {
   width: 100%;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 52px);
   color: white;
   position: absolute;
   top: 0;
@@ -1260,6 +1304,9 @@ XIX. ADS
     opacity: 0; }
   .race-slide h5 {
     line-height: 3rem; }
+  .race-slide.race-overflow {
+    display: block;
+    padding: 2.4rem 0; }
 
 .race-slide-content {
   display: table-cell;
@@ -1268,13 +1315,14 @@ XIX. ADS
 
 .btn-minimal {
   position: fixed;
-  bottom: 20px;
+  bottom: 40px;
   color: #212121;
   font-family: "Gotham A", "Gotham B", Arial, sans-serif;
   font-weight: bold;
-  width: 150px;
+  width: auto;
+  min-width: 250px;
   left: 50%;
-  margin-left: -75px;
+  margin-left: -125px;
   background-color: initial;
   border: none;
   text-transform: uppercase;
@@ -1285,4 +1333,52 @@ XIX. ADS
   line-height: 1.6rem;
   margin-bottom: 0; }
   .btn-minimal:hover {
-    color: #fbb010; }
+    background-color: #fbb010; }
+
+.controls {
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  padding-top: calc((100vh - (100vw * .5625)) / 2); }
+  .controls i {
+    font-size: 1.6rem;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    color: #212225;
+    cursor: pointer; }
+    .controls i:hover {
+      background-color: #fbb829; }
+
+#share-comments {
+  display: block; }
+
+.shareComments h5 {
+  font-family: "Gotham A", "Gotham B", Arial, sans-serif;
+  font-weight: bold; }
+
+.shareComments .shareCommentsTop {
+  margin: 1.2rem 0 2.4rem 0;
+  border-bottom: 1px solid #f2efe1;
+  padding-bottom: 2.4rem; }
+  .shareComments .shareCommentsTop ul {
+    text-align: left; }
+
+.shareComments li.facebookShare a {
+  background-position: 0 -40px; }
+
+.shareComments li.twitterShare a {
+  background-position: -40px -40px; }
+
+.shareComments li.emailShare a {
+  background-position: -80px -40px; }
+
+.shareComments li.printShare a {
+  display: none; }
+
+.fyre * {
+  color: #f2efe1 !important; }
