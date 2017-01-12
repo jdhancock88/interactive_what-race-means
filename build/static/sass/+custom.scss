@@ -30,12 +30,16 @@
     span {
         color: $dark;
         font-family: $sans;
-        // font-weight: bold;
+        font-weight: bold;
         text-transform: uppercase;
         cursor: pointer;
+        margin-left: 10px;
         @include type(1.2rem, 3rem, 0);
         &:hover {
             text-decoration: underline;
+        }
+        &:first-of-type {
+            margin-left: 0;
         }
         &:last-of-type {
             float: right;
@@ -326,7 +330,7 @@
     }
     &.race-overflow {
         display: block;
-        padding: 2.4rem 0;
+        padding: 3.6rem 0;
         &.race-video {
             padding: 0 0;
         }
@@ -334,6 +338,23 @@
             display: block;
             .controls {
                 top: 20px;
+            }
+        }
+    }
+}
+
+.race-video {
+    &.race-overflow {
+        .race-slide-content {
+            width: 56.25%;
+            margin: 3.6rem auto 4.8rem;
+            .progress-bar {
+                top: 3.6rem;
+                width: 56.25%;
+            }
+            .controls {
+                top: 4.6rem;
+                left: 23%;
             }
         }
     }
@@ -405,14 +426,43 @@
     }
 }
 
-#share-comments {
-    i {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 30px;
+.race-slide .fa-times-circle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: $offWhite;
+    cursor: pointer;
+    &:hover {
+        color: $primary;
+    }
+}
+
+#about {
+    padding: 10% 5%;
+    h5, p {
+        text-align: left;
         color: $offWhite;
-        cursor: pointer;
+    }
+    h5 {
+        margin-top: 3.6rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
+    p {
+        @include type(1.4rem, 2.4rem, 0);
+        a {
+            color: $primary;
+            &:visited {
+                color: $black121;
+            }
+        }
+    }
+    .about-content {
+        max-width: 800px;
     }
 }
 

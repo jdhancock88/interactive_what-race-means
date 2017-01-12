@@ -409,7 +409,6 @@ $(document).ready(function() {
 			}
 		});
 
-		console.log(currentSlide);
 		$(".race-slide").addClass("off-screen");
 
 		setTimeout(function() {
@@ -417,18 +416,40 @@ $(document).ready(function() {
 		}, interval);
 	});
 
+	$("#view-about").on("click", function() {
+		introVideo[0].pause();
+		qVideo[0].pause();
+
+		$.each($(".race-slide"), function() {
+			if ($(this).hasClass("off-screen") === false) {
+				currentSlide = $(this).attr("id");
+			}
+		});
+
+		$(".race-slide").addClass("off-screen");
+
+		setTimeout(function() {
+			$("#about").removeClass("off-screen");
+		}, interval);
+	});
+
 	$(".fa-times-circle").click(function() {
-		console.log("test");
-		$("#share-comments").addClass("off-screen");
+		var parent = $(this).closest(".race-slide").attr("id");
+		closeSlide(parent);
+	});
+
+	function closeSlide(parent) {
+		$("#" + parent).addClass("off-screen");
 
 		setTimeout(function() {
 			$("#" + currentSlide).removeClass("off-screen");
 		}, interval);
-	});
+	}
 
 
 	$.each($(".race-slide-content"), function() {
-		if ($(this).height() > $(window).height()) {
+
+		if ($(this).height() > ($(window).height() - 82)) {
 			$(this).closest(".race-slide").addClass("race-overflow");
 		} else {
 			$(this).closest(".race-slide").removeClass("race-overflow");
@@ -470,7 +491,7 @@ $(document).ready(function() {
 				setQuestionHeight();
 
 				$.each($(".race-slide-content"), function() {
-					if ($(this).height() > $(window).height()) {
+					if ($(this).height() > ($(window).height() - 82)) {
 						$(this).closest(".race-slide").addClass("race-overflow");
 					} else {
 						$(this).closest(".race-slide").removeClass("race-overflow");

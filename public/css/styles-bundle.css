@@ -1121,7 +1121,7 @@ XIX. ADS
 .ad {
   border-bottom: 1px solid #d7d7d7;
   border-top: 1px solid #d7d7d7;
-  margin: 4.8rem 0;
+  margin: 4.8rem 0 0;
   padding: 3.6rem 0;
   position: relative;
   text-align: center;
@@ -1163,13 +1163,17 @@ XIX. ADS
   #race-footer span {
     color: #45484d;
     font-family: "Gotham A", "Gotham B", Arial, sans-serif;
+    font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
+    margin-left: 10px;
     font-size: 1.2rem;
     line-height: 3rem;
     margin-bottom: 0; }
     #race-footer span:hover {
       text-decoration: underline; }
+    #race-footer span:first-of-type {
+      margin-left: 0; }
     #race-footer span:last-of-type {
       float: right; }
 
@@ -1399,13 +1403,23 @@ XIX. ADS
     line-height: 3rem; }
   .race-slide.race-overflow {
     display: block;
-    padding: 2.4rem 0; }
+    padding: 3.6rem 0; }
     .race-slide.race-overflow.race-video {
       padding: 0 0; }
     .race-slide.race-overflow .race-slide-content {
       display: block; }
       .race-slide.race-overflow .race-slide-content .controls {
         top: 20px; }
+
+.race-video.race-overflow .race-slide-content {
+  width: 56.25%;
+  margin: 3.6rem auto 4.8rem; }
+  .race-video.race-overflow .race-slide-content .progress-bar {
+    top: 3.6rem;
+    width: 56.25%; }
+  .race-video.race-overflow .race-slide-content .controls {
+    top: 4.6rem;
+    left: 23%; }
 
 .race-slide-content {
   display: table-cell;
@@ -1467,13 +1481,37 @@ XIX. ADS
     top: 0;
     background-color: #0185d3; }
 
-#share-comments i {
+.race-slide .fa-times-circle {
   position: absolute;
   top: 20px;
   right: 20px;
   font-size: 30px;
   color: #f2efe1;
   cursor: pointer; }
+  .race-slide .fa-times-circle:hover {
+    color: #fbb829; }
+
+#about {
+  padding: 10% 5%; }
+  #about h5, #about p {
+    text-align: left;
+    color: #f2efe1; }
+  #about h5 {
+    margin-top: 3.6rem;
+    font-weight: bold;
+    text-transform: uppercase; }
+    #about h5:first-of-type {
+      margin-top: 0; }
+  #about p {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    margin-bottom: 0; }
+    #about p a {
+      color: #fbb829; }
+      #about p a:visited {
+        color: #797979; }
+  #about .about-content {
+    max-width: 800px; }
 
 .share-comments-container {
   padding: 10% 5%;
