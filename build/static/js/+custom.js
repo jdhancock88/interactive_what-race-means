@@ -449,10 +449,19 @@ $(document).ready(function() {
 
 	$.each($(".race-slide-content"), function() {
 
-		if ($(this).height() > ($(window).height() - 82)) {
+		if ($(this).height() > $(window).height()) {
 			$(this).closest(".race-slide").addClass("race-overflow");
 		} else {
 			$(this).closest(".race-slide").removeClass("race-overflow");
+		}
+
+		var w = $(window).width();
+		var h = $(window).height() - 82;
+
+		if (h / w < 0.5625) {
+			$(".race-video").addClass("race-overflow");
+		} else {
+			$(".race-video").removeClass("race-overflow");
 		}
 	});
 
@@ -491,11 +500,19 @@ $(document).ready(function() {
 				setQuestionHeight();
 
 				$.each($(".race-slide-content"), function() {
-					if ($(this).height() > ($(window).height() - 82)) {
+					if ($(this).height() > $(window).height()) {
 						$(this).closest(".race-slide").addClass("race-overflow");
 					} else {
 						$(this).closest(".race-slide").removeClass("race-overflow");
 					}
+
+					console.log(newH - 82, newW, (newH - 82) / newW);
+					if ((newH -82)  / newW < 0.5625) {
+						$(".race-video").addClass("race-overflow");
+					} else {
+						$(".race-video").removeClass("race-overflow");
+					}
+
 				});
 
 			}, 250);
