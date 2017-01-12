@@ -183,23 +183,6 @@ $(document).ready(function() {
 		// find the parent race-slide class and move it offscreen
 		$(this).closest(".race-slide").addClass("off-screen");
 
-		var small;
-
-		if ($(window).width() < 700) {
-			small = true;
-		} else {
-			small = false;
-		}
-
-		if (!small) {
-			$("#mp4-tag").attr("src", "assets/main.mp4");
-			$("#ogg-tag").attr("src", "assets/main.ogg");
-		} else {
-			$("#mp4-tag").attr("src", "assets/main-small.mp4");
-			$("#ogg-tag").attr("src", "assets/main-small.ogg");
-		}
-
-
 		// wait for the animation to finish, then animate the race intro video onto the screen
 		// load it and play it
 		setTimeout(function() {

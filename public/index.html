@@ -275,6 +275,17 @@ googletag.enableServices();
             Your browser does not support native video.
         </video>
 
+        <script>
+    		if ($(window).width() < 700) {
+                $("#mp4-tag").attr("src", "assets/main.mp4");
+    			$("#ogg-tag").attr("src", "assets/main.ogg");
+    		} else {
+                $("#mp4-tag").attr("src", "assets/main-small.mp4");
+    			$("#ogg-tag").attr("src", "assets/main-small.ogg");
+    		}
+            $("#intro-video")[0].pause();
+        </script>
+
         <div class="progress-bar">
             <span class="progress"></span>
         </div>
