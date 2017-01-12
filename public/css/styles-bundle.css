@@ -1158,9 +1158,10 @@ XIX. ADS
   width: 100%;
   left: 0;
   height: 30px;
-  padding: 0 20px; }
+  padding: 0 20px;
+  background-color: #fbb829; }
   #race-footer span {
-    color: white;
+    color: #45484d;
     font-family: "Gotham A", "Gotham B", Arial, sans-serif;
     text-transform: uppercase;
     cursor: pointer;
@@ -1189,7 +1190,7 @@ XIX. ADS
   overflow: hidden;
   float: left;
   color: #f2efe1;
-  padding: 100px 25px 25px 25px;
+  padding: 100px 10px 10px 10px;
   opacity: 0;
   font-family: "Gotham A", "Gotham B", Arial, sans-serif;
   text-align: center;
@@ -1201,23 +1202,19 @@ XIX. ADS
   #intro-text h1, #intro-text h6 {
     text-transform: uppercase; }
   #intro-text h1 {
-    font-family: "Anton", "Gotham A", "Gotham B", Arial, sans-serif;
-    font-size: 8rem;
+    font-weight: bold;
+    font-size: 6rem;
+    line-height: .9em;
     margin-bottom: 2.4rem; }
   #intro-text h6 {
-    width: 280px;
     margin: 0 auto;
-    border-bottom: 2px solid #f2efe1;
-    padding-bottom: .6rem;
-    margin-bottom: 2.4rem; }
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem; }
   #intro-text.visible-text {
-    padding: 25px;
+    padding: 10px;
     opacity: 1; }
-  #intro-text img {
-    width: 50px;
-    height: 50px; }
   #intro-text button {
-    margin-top: 3.6rem; }
+    margin-top: 1.2rem; }
 
 .int-btn {
   margin: 2.4rem auto 0;
@@ -1238,15 +1235,100 @@ XIX. ADS
   transition: all 0.5s ease-out; }
 
 .visible {
-  opacity: 1; }
+  opacity: 1 !important; }
+
+.viewed {
+  opacity: .8 !important; }
+  .viewed h5 {
+    color: #a0a0a0; }
 
 #group2 .race-image, #group3 .race-image {
   width: 100%; }
 
+@media (max-width: 1125px) {
+  #intro-text h1 {
+    font-size: 5rem; } }
+
+@media (orientation: portrait) {
+  #group1, #group2, #group3, #group4 {
+    float: none; }
+  #group1, #group4 {
+    width: initial; }
+    #group1 .race-image, #group4 .race-image {
+      width: 33.33%; }
+  #group2, #group3 {
+    width: initial; }
+    #group2 .race-image, #group3 .race-image {
+      width: 33.33%; }
+  .race-image {
+    display: inline-block; }
+  #intro-text {
+    width: 100%; }
+    #intro-text h1 {
+      font-size: 10rem; } }
+
+@media (orientation: portrait) and (min-height: 700px) {
+  .race-image {
+    height: calc((60vh - 26px) / 4); }
+  #intro-text {
+    height: calc(40vh - 26px); } }
+
+@media (orientation: portrait) and (max-height: 699px) {
+  .race-image {
+    height: calc((50vh - 26px) / 4); }
+  #intro-text {
+    height: calc(50vh - 26px); } }
+
+@media (orientation: portrait) and (max-width: 750px) {
+  #intro-text h1 {
+    font-size: 6rem; } }
+
+@media (orientation: portrait) and (max-width: 575px) {
+  #intro-text h1 {
+    font-size: 4rem; } }
+
+@media (orientation: portrait) and (max-width: 450px) {
+  #intro-text h1 {
+    font-size: 4rem; } }
+
+@media (min-aspect-ratio: 16 / 10) and (max-height: 600px) {
+  #intro-text .visible-text {
+    padding: 10px !important; }
+  #intro-text h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1.2rem; }
+  #intro-text .int-btn {
+    font-size: 1.2rem;
+    line-height: 3rem; } }
+
 #race-explainer {
+  display: block;
   color: #f2efe1; }
   #race-explainer .race-slide-content {
-    padding: 0 25%; }
+    padding: 15% 5% 0;
+    margin-bottom: 4.8rem;
+    display: block; }
+  #race-explainer h4 {
+    max-width: 800px;
+    margin: 0 auto 2.4rem;
+    line-height: 1.5em; }
+  #race-explainer img {
+    width: 30px;
+    height: 30px; }
+  #race-explainer .exp {
+    opacity: 0;
+    -webkit-transtion: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    transition: all 1s ease-out; }
+  @media (max-width: 700px) {
+    #race-explainer h4 {
+      font-size: 2rem;
+      line-height: 3rem;
+      margin-bottom: 3.6rem; }
+    #race-explainer h5 {
+      font-size: 1.6rem;
+      line-height: 2.4rem; } }
 
 #race-questions .race-slide-content {
   padding: 0 12.5%; }
@@ -1262,12 +1344,13 @@ XIX. ADS
   margin: 0 2% 2% 0;
   background-color: #f2efe1;
   color: #212121;
-  padding: 20px;
+  padding: 25px;
   display: table;
   text-align: center;
   cursor: pointer;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.95);
   border-radius: 1px;
+  position: relative;
   -webkit-transtion: all 0.25s ease-out;
   -moz-transition: all 0.25s ease-out;
   -o-transition: all 0.25s ease-out;
@@ -1282,10 +1365,20 @@ XIX. ADS
     background-color: #efebda;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.95); }
   #race-questions .question-card h5 {
+    text-transform: none;
     display: table-cell;
     vertical-align: middle;
     margin-bottom: 0;
     line-height: 2.4rem; }
+
+@media (max-width: 800px) {
+  #race-questions .race-slide-content {
+    padding: 0 5%; }
+  #race-questions .question-card {
+    width: 100%;
+    margin: 0 0 1.2rem 0;
+    float: none;
+    padding: 15px; } }
 
 .race-slide {
   width: 100%;
@@ -1307,6 +1400,12 @@ XIX. ADS
   .race-slide.race-overflow {
     display: block;
     padding: 2.4rem 0; }
+    .race-slide.race-overflow.race-video {
+      padding: 0 0; }
+    .race-slide.race-overflow .race-slide-content {
+      display: block; }
+      .race-slide.race-overflow .race-slide-content .controls {
+        top: 20px; }
 
 .race-slide-content {
   display: table-cell;
@@ -1315,7 +1414,7 @@ XIX. ADS
 
 .btn-minimal {
   position: fixed;
-  bottom: 40px;
+  bottom: 30px;
   color: #212121;
   font-family: "Gotham A", "Gotham B", Arial, sans-serif;
   font-weight: bold;
@@ -1337,11 +1436,10 @@ XIX. ADS
 
 .controls {
   position: absolute;
-  top: 0px;
-  left: 20px;
-  padding-top: calc((100vh - (100vw * .5625)) / 2); }
+  top: calc((100vh - (100vw * .5625)) / 2);
+  left: 20px; }
   .controls i {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     line-height: 30px;
     text-align: center;
     margin-right: 5px;
@@ -1354,19 +1452,49 @@ XIX. ADS
     .controls i:hover {
       background-color: #fbb829; }
 
-#share-comments {
-  display: block; }
+.progress-bar {
+  width: 100%;
+  background-color: #f2efe1;
+  display: block;
+  height: 2px;
+  position: absolute;
+  top: calc(((100vh - 53px) - (100vw * .5625)) / 2); }
+  .progress-bar .progress {
+    width: 0;
+    height: 2px;
+    display: block;
+    position: absolute;
+    top: 0;
+    background-color: #0185d3; }
 
-.shareComments h5 {
-  font-family: "Gotham A", "Gotham B", Arial, sans-serif;
-  font-weight: bold; }
+#share-comments i {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: #f2efe1;
+  cursor: pointer; }
 
-.shareComments .shareCommentsTop {
-  margin: 1.2rem 0 2.4rem 0;
-  border-bottom: 1px solid #f2efe1;
-  padding-bottom: 2.4rem; }
-  .shareComments .shareCommentsTop ul {
-    text-align: left; }
+.share-comments-container {
+  padding: 10% 5%;
+  max-width: 800px;
+  margin: 0 auto; }
+  .share-comments-container h5 {
+    font-family: "Gotham A", "Gotham B", Arial, sans-serif;
+    font-weight: bold; }
+  .share-comments-container .shareCommentsTop {
+    margin: 1.2rem 0 2.4rem 0;
+    border-bottom: 1px solid #f2efe1;
+    padding-bottom: 2.4rem; }
+    .share-comments-container .shareCommentsTop ul {
+      text-align: left; }
+  .share-comments-container .shareComments {
+    max-width: none !important; }
+  @media (max-width: 600px) {
+    .share-comments-container {
+      padding: 10% 5%; }
+      .share-comments-container .shareComments {
+        padding: 0 0 25px; } }
 
 .shareComments li.facebookShare a {
   background-position: 0 -40px; }

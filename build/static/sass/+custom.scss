@@ -26,8 +26,9 @@
     left: 0;
     height: 30px;
     padding: 0 20px;
+    background-color: $primary;
     span {
-        color: white;
+        color: $dark;
         font-family: $sans;
         // font-weight: bold;
         text-transform: uppercase;
@@ -60,7 +61,7 @@
     overflow: hidden;
     float: left;
     color: $offWhite;
-    padding: 100px 25px 25px 25px;
+    padding: 100px 10px 10px 10px;
     opacity: 0;
     font-family: $sans;
     text-align: center;
@@ -69,28 +70,24 @@
         text-transform: uppercase;
     }
     h1 {
-        font-family: $custom;
-        font-size: 8rem;
+        // font-family: $custom;
+        font-weight: bold;
+        font-size: 6rem;
+        line-height: .9em;
         margin-bottom: 2.4rem;
     }
     h6 {
-        width: 280px;
         margin: 0 auto;
-        border-bottom: 2px solid $offWhite;
-        padding-bottom: .6rem;
-        margin-bottom: 2.4rem;
+        margin-bottom: 1.2rem;
+        font-size: 1.4rem;
     }
     @include transition(all, .5s, ease-out);
     &.visible-text {
-        padding: 25px;
+        padding: 10px;
         opacity: 1;
     }
-    img {
-        width: 50px;
-        height: 50px;
-    }
     button {
-        margin-top: 3.6rem;
+        margin-top: 1.2rem;
     }
 }
 
@@ -111,20 +108,149 @@
     @include transition(all, .5s, ease-out);
 }
 .visible {
-    opacity: 1;
+    opacity: 1 !important;
+}
+.viewed {
+    opacity: .8 !important;
+    h5 {
+        color: rgb(160,160,160);
+    }
 }
 
 #group2 .race-image, #group3 .race-image {
     width: 100%;
 }
 
-
-#race-explainer {
-    color: $offWhite;
-    .race-slide-content {
-        padding: 0 25%;
+@media (max-width: 1125px) {
+    #intro-text {
+        h1 {
+            font-size: 5rem;
+        }
     }
 }
+
+
+@media (orientation: portrait) {
+    #group1, #group2, #group3, #group4 {
+        float: none;
+    }
+
+    #group1, #group4 {
+        width: initial;
+        .race-image {
+            width: 33.33%;
+        }
+    }
+    #group2, #group3 {
+        width: initial;
+        .race-image {
+            width: 33.33%;
+        }
+    }
+    .race-image {
+        display: inline-block;
+    }
+    #intro-text {
+        width: 100%;
+        h1 {
+            font-size: 10rem;
+        }
+    }
+}
+
+@media (orientation: portrait) and (min-height: 700px) {
+    .race-image {
+        height: calc((60vh - 26px) / 4);
+    }
+    #intro-text {
+        height: calc(40vh - 26px);
+    }
+}
+
+@media(orientation: portrait) and (max-height: 699px) {
+    .race-image {
+        height: calc((50vh - 26px) / 4);
+    }
+    #intro-text {
+        height: calc(50vh - 26px);
+    }
+}
+
+@media(orientation: portrait) and (max-width: 750px) {
+    #intro-text {
+        h1 {
+            font-size: 6rem;
+        }
+    }
+}
+
+@media(orientation: portrait) and (max-width: 575px) {
+    #intro-text {
+        h1 {
+            font-size: 4rem;
+        }
+    }
+}
+
+@media(orientation: portrait) and (max-width: 450px) {
+    #intro-text {
+        h1 {
+            font-size: 4rem;
+        }
+    }
+}
+
+@media(min-aspect-ratio: 16/10) and (max-height: 600px) {
+    #intro-text {
+        .visible-text {
+            padding: 10px !important;
+        }
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 1.2rem;
+        }
+        .int-btn {
+            font-size: 1.2rem;
+            line-height: 3rem;
+        }
+    }
+}
+
+#race-explainer {
+    display: block;
+    color: $offWhite;
+    .race-slide-content {
+        padding: 15% 5% 0;
+        margin-bottom: 4.8rem;
+        display: block;
+    }
+    h4 {
+        max-width: 800px;
+        margin: 0 auto 2.4rem;
+        line-height: 1.5em;
+    }
+    img {
+        width: 30px;
+        height: 30px;
+    }
+    .exp {
+        opacity: 0;
+        @include transition(all, 1s, ease-out);
+    }
+    @media(max-width: 700px) {
+        h4 {
+            font-size: 2rem;
+            line-height: 3rem;
+            margin-bottom: 3.6rem;
+        }
+        h5 {
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+        }
+    }
+}
+
+
 
 #race-questions {
     .race-slide-content {
@@ -141,12 +267,13 @@
         margin: 0 2% 2% 0;
         background-color: $offWhite;
         color: $black33;
-        padding: 20px;
+        padding: 25px;
         display: table;
         text-align: center;
         cursor: pointer;
         box-shadow: 0px 0px 5px rgba(0,0,0,.95);
         border-radius: 1px;
+        position: relative;
         @include transition(all, .25s, ease-out);
         &:nth-of-type(even) {
             margin-right: 0;
@@ -161,10 +288,22 @@
             box-shadow: 0px 0px 15px rgba(0,0,0,.95);
         }
         h5 {
+            text-transform: none;
             display: table-cell;
             vertical-align: middle;
             margin-bottom: 0;
             line-height: 2.4rem;
+        }
+    }
+    @media (max-width: 800px) {
+        .race-slide-content {
+            padding: 0 5%;
+        }
+        .question-card {
+            width: 100%;
+            margin: 0 0 1.2rem 0;
+            float: none;
+            padding: 15px;
         }
     }
 }
@@ -188,6 +327,15 @@
     &.race-overflow {
         display: block;
         padding: 2.4rem 0;
+        &.race-video {
+            padding: 0 0;
+        }
+        .race-slide-content {
+            display: block;
+            .controls {
+                top: 20px;
+            }
+        }
     }
 }
 
@@ -199,7 +347,7 @@
 
 .btn-minimal {
     position: fixed;
-    bottom: 40px;
+    bottom: 30px;
     color: $black33;
     font-family: $sans;
     font-weight: bold;
@@ -221,11 +369,10 @@
 
 .controls {
     position: absolute;
-    top: 0px;
+    top: calc((100vh - (100vw * .5625)) / 2);
     left: 20px;
-    padding-top: calc((100vh - (100vw * .5625)) / 2);
     i {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
         line-height: 30px;
         text-align: center;
         margin-right: 5px;
@@ -241,11 +388,38 @@
     }
 }
 
-#share-comments {
+.progress-bar {
+    width: 100%;
+    background-color: $offWhite;
     display: block;
+    height: 2px;
+    position: absolute;
+    top: calc(((100vh - 53px) - (100vw * .5625)) / 2);
+    .progress {
+        width: 0;
+        height: 2px;
+        display: block;
+        position: absolute;
+        top: 0;
+        background-color: $dmnblue;
+    }
 }
 
-.shareComments {
+#share-comments {
+    i {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        color: $offWhite;
+        cursor: pointer;
+    }
+}
+
+.share-comments-container {
+    padding: 10% 5%;
+    max-width: 800px;
+    margin: 0 auto;
     h5 {
         font-family: $sans;
         font-weight: bold;
@@ -256,6 +430,15 @@
         padding-bottom: 2.4rem;
         ul {
             text-align: left;
+        }
+    }
+    .shareComments {
+        max-width: none !important
+    }
+    @media (max-width: 600px) {
+        padding: 10% 5%;
+        .shareComments {
+            padding: 0 0 25px;
         }
     }
 }

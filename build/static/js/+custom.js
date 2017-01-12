@@ -68,6 +68,9 @@ $(document).ready(function() {
 	});
 
 
+
+	var interval = 600;
+
 	////////////////////////////////////////////////////////////////////////////
 	////// INITIAL DISPLAY ANIMATION ///////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
@@ -159,12 +162,12 @@ $(document).ready(function() {
 
 		// display the explainer text
 		setTimeout(function() {
-			$("#race-footer").removeClass("no-show");
 			$("#race-explainer").removeClass("off-screen");
 			$("#race-intro").addClass("no-show");
 		}, (l * 100));
 
 	}
+
 
 	////////////////////////////////////////////////////////////////////////////
 	////// VIEWING THE INTRO VIDEO /////////////////////////////////////////////
@@ -180,18 +183,41 @@ $(document).ready(function() {
 		// find the parent race-slide class and move it offscreen
 		$(this).closest(".race-slide").addClass("off-screen");
 
+		var small;
+
+		if ($(window).width() < 700) {
+			small = true;
+		} else {
+			small = false;
+		}
+
+		if (!small) {
+			$("#mp4-tag").attr("src", "assets/main.mp4");
+			$("#ogg-tag").attr("src", "assets/main.ogg");
+		} else {
+			$("#mp4-tag").attr("src", "assets/main-small.mp4");
+			$("#ogg-tag").attr("src", "assets/main-small.ogg");
+		}
+
+
 		// wait for the animation to finish, then animate the race intro video onto the screen
 		// load it and play it
 		setTimeout(function() {
 			$("#race-intro-video").removeClass("off-screen");
 			introVideo[0].load();
 			introVideo[0].play();
-		}, 600);
+
+			$("#intro-video")[0].removeEventListener("timeupdate", updateProgress);
+			$("#race-intro-video").find(".progress").css("width", "0");
+			$("#intro-video")[0].addEventListener("timeupdate", function() {
+				updateProgress("#intro-video");
+			}, false);
+		}, interval);
 
 		// after both the off-screen and on-screen animations complete, show the skip intro button
 		setTimeout(function() {
 			$("#intro-skip").removeClass("no-show");
-		}, 1200);
+		}, (interval * 2));
 	});
 
 
@@ -217,6 +243,9 @@ $(document).ready(function() {
 
 	function showQuestions(thisObj) {
 
+		// show the footer
+		$("#race-footer").removeClass("no-show");
+
 		// find the parent race-slide div and slide it off screen, then pause that slide's video
 		thisObj.closest(".race-slide").addClass("off-screen");
 		thisObj.closest(".race-slide").find("video")[0].pause();
@@ -225,7 +254,7 @@ $(document).ready(function() {
 		// show the questions after the above's animation finishes
 		setTimeout(function() {
 			$("#race-questions").removeClass("off-screen");
-		}, 600);
+		}, interval);
 
 	}
 
@@ -247,8 +276,7 @@ $(document).ready(function() {
 		// hide the questions slide
 		$("#race-questions").addClass("off-screen");
 
-		// fill out the src attribute with the proper video path
-
+		// fill out the src attribute with the proper video path depending on screen width
 		if (small) {
 			$("#q-mp4-tag").attr("src", "assets/" + video + "-small.mp4");
 			$("#q-ogg-tag").attr("src", "assets/" + video + "-small.ogg");
@@ -260,24 +288,37 @@ $(document).ready(function() {
 		// animate in the slide that holds the individual video questions
 		setTimeout(function() {
 			$("#question-video").removeClass("off-screen");
-		}, 600);
+		}, interval);
 
 		// show the button that allows the user to get back to the questions
 		setTimeout(function() {
 			$("#view-questions").removeClass("no-show");
-		}, 1200);
+		}, (interval * 2));
 
 		// load and play the selected video
 		qVideo[0].load();
 		qVideo[0].play();
 
+		// remove any current eventListener and then add the event listener to update
+		// the progress bar
+		$("#q-video")[0].removeEventListener("timeupdate", updateProgress);
+		$("#questin-video").find(".progress").css("width", "0");
+		$("#q-video")[0].addEventListener("timeupdate", function() {
+			updateProgress("#q-video");
+		}, false);
+
+
 	}
 
 	// clicking a question card grabs the name of the video and passes it off to the loadQuestion
-	// function above
-	$(".question-card").on("click", function() {
+	// function above. also, displays the watched icon on the question card
+	$(".question-card").click(function() {
 		var video = $(this).attr("data-video");
 		loadQuestion(video);
+		var self = $(this);
+		setTimeout(function() {
+			self.addClass("viewed");
+		}, interval);
 	});
 
 	// ending a video and going back to the questions
@@ -315,6 +356,26 @@ $(document).ready(function() {
 	}
 
 
+
+
+
+	function updateProgress(target) {
+		var progress, video;
+		if (target === "#intro-video") {
+			progress = $("#race-intro-video .progress");
+			video = introVideo;
+		} else {
+			progress = $("#question-video .progress");
+			video = qVideo;
+		}
+		var value = 0;
+		if (video[0].currentTime > 0) {
+			value = Math.floor(( 100 / video[0].duration) * video[0].currentTime);
+		}
+		progress.css("width", value + "%");
+	}
+
+
 	////////////////////////////////////////////////////////////////////////////
 	////// FUNCTIONS THAT RUN ON READY /////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
@@ -333,15 +394,36 @@ $(document).ready(function() {
 
 		setTimeout(function() {
 			$("#race-explainer").removeClass("off-screen");
-		}, 600);
+		}, interval);
 	});
 
+	var currentSlide;
+
 	$("#race-comment").on("click", function() {
+		introVideo[0].pause();
+		qVideo[0].pause();
+
+		$.each($(".race-slide"), function() {
+			if ($(this).hasClass("off-screen") === false) {
+				currentSlide = $(this).attr("id");
+			}
+		});
+
+		console.log(currentSlide);
 		$(".race-slide").addClass("off-screen");
 
 		setTimeout(function() {
 			$("#share-comments").removeClass("off-screen");
-		}, 600);
+		}, interval);
+	});
+
+	$(".fa-times-circle").click(function() {
+		console.log("test");
+		$("#share-comments").addClass("off-screen");
+
+		setTimeout(function() {
+			$("#" + currentSlide).removeClass("off-screen");
+		}, interval);
 	});
 
 
@@ -375,13 +457,15 @@ $(document).ready(function() {
 	// some versions of chrome on touch devices consider scrolling a resize event. bad chrome
 
 	var w = $(window).width();
+	var h = $(window).height();
 
 	// if we resize and the width is now different, rerun setQuestionHeight
 	// along with checking the height of the race-divs again to see if they need overflow
 	$(window).resize(function() {
 		var newW = $(window).width();
+		var newH = $(window).height();
 
-		if (w !== newW) {
+		if (w !== newW || h !== newH) {
 			setTimeout(function() {
 				setQuestionHeight();
 
@@ -397,6 +481,7 @@ $(document).ready(function() {
 		}
 
 		w = newW;
+		h = newH;
 	});
 
 });
