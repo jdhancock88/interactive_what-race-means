@@ -24,7 +24,7 @@
 
 <meta name="liveFyreID" content="{{id}}" />
 
-<meta name="parsely-page" id='parsely-page' content='{"title": "{{shareTitle}}", "link": "{{url}}", "image_url": "{{imgURL}}", "type": "post", "post_id": "{{id}}", "pub_date": "{{publishDate}}", "section": "{{section}}", "author": ["{{authors}}"], "tags": ["{{keywords|join('","')|safe}}"]}' />
+<meta name="parsely-page" id='parsely-page' content='{"title": "{{shareTitle}}", "link": "{{url}}", "image_url": "{{imgURL}}", "type": "post", "post_id": "{{id}}", "pub_date": "{{publishDate}}", "section": "{{section}}", "author": ["sarah mervosh", "benjamin robinson"], "tags": ["{{keywords|join('","')|safe}}"]}' />
 
 <meta property="og:keywords" content="{{keywords|join(',')}}"/>
 
@@ -113,7 +113,7 @@ googletag.enableServices();
 
         <div class="race-slide-content">
             <h6>A DallasNews Video Project</h6>
-            <h1>Seeing in Color</h1>
+            <h1>Questions of Color</h1>
             <button class="int-btn">Begin</button>
         </div>
     </div>
@@ -129,40 +129,6 @@ googletag.enableServices();
         <span class= "race-image" id="race-image11"></span>
         <span class= "race-image" id="race-image12"></span>
     </div>
-
-
-
-    <!-- <section class="credits clearfix">
-        <p>Author: <a href="mailto:emailaddress">Name</a></p>
-        <p>Editor: <a href="mailto:emailaddress">Name</a></p>
-        <p>Copy Editor: <a href="mailto:emailaddress">Name</a></p>
-        <p>Photos: <a href="mailto:emailaddress">Name</a></p>
-        <p>Graphics: <a href="mailto:emailaddress">Name</a></p>
-        <p>Designer: <a href="mailto:emailaddress">Name</a></p>
-    </section> -->
-	<!-- end credits -->
-
-	<!-- <section class="more clearfix">
-		<h5>Read more from The Dallas Morning News</h5>
-		<a class="clearfix" href="#">
-			<img src="images/_defaultImage.jpg" alt="#" />
-			<h6>Story title goes here</h6>
-			<p>Description of the story goes in this spot here</p>
-		</a>
-		<a class="clearfix" href="#">
-			<img src="images/_defaultImage.jpg" alt="#" />
-			<h6>Story title goes here</h6>
-			<p>Description of the story goes in this spot here</p>
-		</a>
-		<a class="clearfix" href="#">
-			<img src="images/_defaultImage.jpg" alt="#" />
-			<h6>Story title goes here</h6>
-			<p>Description of the story goes in this spot here</p>
-		</a>
-	</section> -->
-	<!-- end more -->
-
-
 
 </section>
 
@@ -194,7 +160,7 @@ googletag.enableServices();
         </video>
 
         <script>
-    		if ($(window).width() < 700) {
+    		if ($(window).width() > 700) {
                 $("#mp4-tag").attr("src", "assets/main.mp4");
     			$("#ogg-tag").attr("src", "assets/main.ogg");
     		} else {
@@ -288,15 +254,16 @@ googletag.enableServices();
 <section id="about" class="off-screen race-slide">
     <i class="fa fa-times-circle"></i>
 
-    <div class="about-content">
+    <div class="about-content race-slide-content">
         <h5>About this project</h5>
-        <p>Editor: <a href="mailto:rbush@dallasnews.com">Rudy Bush</a>; Writer: <a href="mailto:smervosh@dallasnews.com">Sarah Mervosh</a>; Video Editor: <a href="mailto:brobinson@dallasnews.com">Benjamin Robinson</a>; Photo Editor: <a href="mailto:vbryant@dallasnews.com">Vernon Bryant</a>; Designer: <a href="mailto:jhancock@dallasnews.com">John Hancock</a></p>
+        <p>Editor: <a target="_blank" href="mailto:rbush@dallasnews.com">Rudy Bush</a>; Reporter: <a target="_blank" href="mailto:smervosh@dallasnews.com">Sarah Mervosh</a>; Video Editor: <a target="_blank" href="mailto:brobinson@dallasnews.com">Benjamin Robinson</a>; Photo Editor: <a target="_blank" href="mailto:vbryant@dallasnews.com">Vernon Bryant</a>; Designer: <a target="_blank" href="mailto:jhancock@dallasnews.com">John Hancock</a></p>
 
         <h5>Participants</h5>
         <p>Teevee Aguirre, Sima Awaida, Hunter Boone, Lizzie Cochran, Jeff Harse, Jordan and Isaac Hartman, Diana Holbert, Kevin Hood, Kathy Macken, Puja Maharaj, Chris McElrath, Bhumi Mehta, Joe Milazzo, Tony Peeler, Eric Phillips, Linda Reyes-Hart, Madeline Romero, Ada Simmons and Phillip Shinoda</p>
 
         <h5>Related coverage</h5>
-        <p><a href="#">Here's a link here</a></p>
+        <p><a href="http://www.dallasnews.com/opinion/commentary/2017/01/27/use-white-emoji-says-implicit-racial-bias" target="_blank">Why I don’t use the white emoji — and what that says about implicit racial bias</a></p>
+        <p><a href="http://www.dallasnews.com/opinion/commentary/2017/01/26/talk-race-shades-gray" target="_blank">Talk about race is shades of gray</a></p>
     </div>
 </section>
 
@@ -305,7 +272,7 @@ googletag.enableServices();
 <section id="share-comments" class="off-screen race-slide">
 
     <i class="fa fa-times-circle"></i>
-    <div class="share-comments-container">
+    <div class="share-comments-container race-slid-content">
         <h5>Share this project:</h5>
         <div class="shareComments shareCommentsTop">
             <ul id="share-bar1"></ul>

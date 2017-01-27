@@ -206,7 +206,6 @@ $(document).ready(function() {
 
 	// skipping the intro
 	$("#intro-skip").click(function() {
-		console.log("skip");
 		$(this).addClass("no-show");
 		showQuestions($(this));
 	});
@@ -432,7 +431,7 @@ $(document).ready(function() {
 
 	$.each($(".race-slide-content"), function() {
 
-		if ($(this).height() > $(window).height()) {
+		if ($(this).outerHeight() > ($(window).height() - 51)) {
 			$(this).closest(".race-slide").addClass("race-overflow");
 		} else {
 			$(this).closest(".race-slide").removeClass("race-overflow");
@@ -488,8 +487,6 @@ $(document).ready(function() {
 					} else {
 						$(this).closest(".race-slide").removeClass("race-overflow");
 					}
-
-					console.log(newH - 82, newW, (newH - 82) / newW);
 					if ((newH -82)  / newW < 0.5625) {
 						$(".race-video").addClass("race-overflow");
 					} else {

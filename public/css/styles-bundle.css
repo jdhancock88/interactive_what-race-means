@@ -1511,7 +1511,8 @@ XIX. ADS
       #about p a:visited {
         color: #797979; }
   #about .about-content {
-    max-width: 800px; }
+    max-width: 800px;
+    padding-bottom: 50px; }
 
 .share-comments-container {
   padding: 10% 5%;
